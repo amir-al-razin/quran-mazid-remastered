@@ -1,11 +1,11 @@
 # This is the start of my Qur'an App
 
-***  in sha Allah, i'm gonna fulfill the application with all new modren features ***
+***in sha Allah, i'm gonna fulfill the application with all new modren features***
 
-* May Allah help me in this journey and increase my knowledge and give me the taufeeq to have good intensions. 
+*May Allah help me in this journey and increase my knowledge and give me the taufeeq to have good intensions.* 
 
 
-** Ameen **
+**Ameen**
 
 
 
