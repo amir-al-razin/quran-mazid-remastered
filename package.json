@@ -13,6 +13,8 @@
     "@emotion/styled": "11",
     "axios": "^0.21.1",
     "framer-motion": "4",
+   
+    "humps": "^2.0.1",
     "next": "10.2.0",
     "qs": "^6.10.1",
     "react": "17.0.2",
