@@ -1,3 +1,20 @@
+# This is the start of my Qur'an App
+
+***  in sha Allah, i'm gonna fulfill the application with all new modren features ***
+
+* May Allah help me in this journey and increase my knowledge and give me the taufeeq to have good intensions. 
+
+
+** Ameen **
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
