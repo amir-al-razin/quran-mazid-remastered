@@ -4,7 +4,7 @@ const theme = extendTheme({
   fonts: {
     Madani: "Madani",
     IndoPak: "IndoPak",
-    
+    SurahNames:"surahnames",
   },
 });
 

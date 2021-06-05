@@ -3,17 +3,18 @@ import theme from "@chakra-ui/theme";
 import { GetStaticProps } from "next";
 import React from "react";
 import { getChapters } from "../api";
+import { CONTENT } from "../components/chapters/ChapterIcon";
 import Fonts from "../styles/fonts";
 
-export default function chapters({ chapters }) {
+export default function Chapters({ chapters }) {
   console.log(chapters);
 
   return (
     <div>
-    
-      {chapters.map(({ id, nameArabic, nameSimple }) => (
-        <Container key={id} maxW={"container.lg"}>
+      <Container maxW={"container.lg"}>
+        {chapters.map(({ id, nameArabic, nameSimple }) => (
           <Flex
+            key={id}
             bgColor="yellow.400"
             p="3"
             color="whiteAlpha.900"
@@ -23,14 +24,13 @@ export default function chapters({ chapters }) {
           >
             <Text>{nameSimple}</Text>
             <Text
-             fontFamily="Madani"
-             fontSize="3xl"
-            >
-              {nameArabic}
-            </Text>
+              fontFamily="SurahNames"
+              fontSize="3xl"
+              _before={{ content: `"\\E${CONTENT[id]}"` }}
+            ></Text>
           </Flex>
-        </Container>
-      ))}
+        ))}
+      </Container>
     </div>
   );
 }
