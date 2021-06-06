@@ -26,7 +26,7 @@ export default function Chapters({ chapters }) {
             <Text
               fontFamily="SurahNames"
               fontSize="3xl"
-              _before={{ content: `"\\E${CONTENT[id]}"` }}
+              _before={{ content: `"\\E${CONTENT[id]} \\E903"` }}
             ></Text>
           </Flex>
         ))}
