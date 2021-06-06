@@ -36,7 +36,7 @@ export default function Home({ sajdaVerses }) {
         ))}
       </Flex>
     </Container>
-  ) : <Link href="/chapter">Chapters</Link>
+  ) : <Link href="/chapters">Chapters</Link>
 }
 
 export const getStaticProps: GetStaticProps = async () => {
