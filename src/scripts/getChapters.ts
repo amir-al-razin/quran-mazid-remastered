@@ -1,5 +1,5 @@
 import { makeUrl } from '../utils/api'
-import {fetcher} from '../utils/fetcher'
+import fetcher from '../utils/fetcher'
 import { camelizeKeys } from 'humps';
 import ChapterType from '../types/ChapterType';
 
