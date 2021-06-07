@@ -10,3 +10,8 @@ export const  getChapters=async () =>{
 
     return <ChapterType[]> camelizeKeys(payload)
 }
+
+export const getChapterVersesResponse = async (id: string | number | string[]) => {
+  return fetcher(makeUrl(`/chapters/${id}/verses`));
+};
+
