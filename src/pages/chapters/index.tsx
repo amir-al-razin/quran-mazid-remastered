@@ -20,9 +20,17 @@ export default function Chapters({ chapters }) {
   return (
     <Box py="2" bgGradient="linear(to-l, #801fe1, #FF0080)" bgColor="blue.800">
       <Container maxW={"container.lg"}>
-        <Grid templateColumns="repeat(3, 1fr)" gap={2}>
+        <Grid
+          templateColumns={[
+            "repeat(1,1fr)",
+            "repeat(1,1fr)",
+            "repeat(2,1fr)",
+            "repeat(3,1fr)",
+          ]}
+          gap={2}
+        >
           {chapters.map(({ id, nameArabic, nameSimple }) => (
-            <Link href={`/chapters/${id}`} key={id+nameSimple}>
+            <Link href={`/chapters/${id}`} key={id + nameSimple}>
               <Flex
                 bgColor="purple.600"
                 p="4"
