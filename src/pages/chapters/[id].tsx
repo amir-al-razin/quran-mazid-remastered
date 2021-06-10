@@ -61,11 +61,11 @@ const SurahPage = ({ chapter, chapterVerses, chapterVersesMeta }: Props) => {
             <Text fontFamily="Madani" fontSize="5xl">
               {text_madani}
             </Text>
-            {words.map((word) => (
+            {/* {words.map((word) => (
               <Text fontSize="6xl" fontFamily={word.class_name}>
                 &#xfb51;&#xfb52;&#xfb53;&#xfb54;&#xfb55;
               </Text>
-            ))}
+            ))} */}
           </Flex>
         ))}
       </Flex>
