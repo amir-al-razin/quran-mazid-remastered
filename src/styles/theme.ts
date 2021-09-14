@@ -1,6 +1,17 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      "html, body": {
+        bg: "gray.900",
+        color: "whiteAlpha.900",
+      },
+      a: {
+        color: "teal.500",
+      },
+    },
+  },
   fonts: {
     Madani: "Madani",
     IndoPak: "IndoPak",

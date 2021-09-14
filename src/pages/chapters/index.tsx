@@ -18,7 +18,7 @@ export default function Chapters({ chapters }) {
   console.log(chapters);
 
   return (
-    <Box py="2" bgGradient="linear(to-l, #801fe1, #FF0080)" bgColor="blue.800">
+    <Box py="2" bgColor="gray.900">
       <Container maxW={"container.lg"}>
         <Grid
           templateColumns={[
@@ -32,9 +32,8 @@ export default function Chapters({ chapters }) {
           {chapters.map(({ id, nameArabic, nameSimple }) => (
             <Link href={`/chapters/${id}`} key={id + nameSimple}>
               <Flex
-                bgColor="purple.600"
+                bgColor="gray.800"
                 p="4"
-                color="whiteAlpha.900"
                 borderRadius="md"
                 justify="space-between"
                 align="center"
@@ -46,15 +45,21 @@ export default function Chapters({ chapters }) {
                     mr="2"
                     w="5"
                     h="5"
-                    bgColor="purple.800"
+                    border="2px"
+                    borderColor="gray.700"
                     borderRadius="3xl"
+                    fontWeight="semibold"
                     p="4"
                     align="center"
                     justify="center"
                   >
                     {id}
                   </Flex>
-                  <Text>{nameSimple}</Text>
+                  <Text fontWeight="semibold">
+                    Surah
+                    <br />
+                    {nameSimple}
+                  </Text>
                 </Flex>
 
                 <Text
