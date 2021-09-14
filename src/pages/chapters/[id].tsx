@@ -41,7 +41,7 @@ export async function getStaticProps({ params }) {
 const SurahPage = ({ chapter, chapterVerses, chapterVersesMeta }: Props) => {
   console.log(chapterVerses);
   return (
-    <Box>
+    <Container bg="">
       <Heading py="2" fontSize="6xl" align="center" fontFamily="Madani">
         {chapter.nameArabic}
       </Heading>
@@ -50,26 +50,22 @@ const SurahPage = ({ chapter, chapterVerses, chapterVersesMeta }: Props) => {
         {chapterVerses.map(({ text_madani, id, words }) => (
           <Flex
             flexWrap="wrap"
-            bgColor="pink.500"
-            dir="rtl"
+            bgColor="gray.800"
             borderBottom="1px"
+            borderColor="gray.700"
+            mb="2"
             gap="2"
             py="3"
             px="2"
             key={id}
           >
-            <Text fontFamily="Madani" fontSize="5xl">
+            <Text w="full" dir="rtl" fontFamily="Madani" fontSize="3xl">
               {text_madani}
             </Text>
-            {/* {words.map((word) => (
-              <Text fontSize="6xl" fontFamily={word.class_name}>
-                &#xfb51;&#xfb52;&#xfb53;&#xfb54;&#xfb55;
-              </Text>
-            ))} */}
           </Flex>
         ))}
       </Flex>
-    </Box>
+    </Container>
   );
 };
 
