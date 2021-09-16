@@ -38,7 +38,8 @@ export default function Chapters({ chapters }) {
                 justify="space-between"
                 align="center"
                 cursor="pointer"
-                _hover={{ shadow: "lg" }}
+                transition=".2s ease"
+                _hover={{ bg: "gray.700" }}
               >
                 <Flex align="center">
                   <Flex

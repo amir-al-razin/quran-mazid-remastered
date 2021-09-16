@@ -42,7 +42,13 @@ const SurahPage = ({ chapter, chapterVerses, chapterVersesMeta }: Props) => {
   console.log(chapterVerses);
   return (
     <Container bg="">
-      <Heading py="2" fontSize="6xl" align="center" fontFamily="Madani">
+      <Heading
+        py="2"
+        fontSize="6xl"
+        fontWeight="medium"
+        align="center"
+        fontFamily="Madani"
+      >
         {chapter.nameArabic}
       </Heading>
 
