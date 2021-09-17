@@ -11,9 +11,9 @@ export default function Home() {
 
   return (
     <Box minH="100vh" display="grid" placeItems="center">
-      <Link href="/chapters">
-        <Button>Read Qur'an</Button>
-      </Link>
+      <Button>
+        <Link href="/chapters">Read Qur'an</Link>
+      </Button>
     </Box>
   );
 }

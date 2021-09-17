@@ -9,7 +9,7 @@ const theme = extendTheme({
         color: "whiteAlpha.900",
       },
       a: {
-        color: "teal.500",
+        color: "purple.50",
       },
     },
   },

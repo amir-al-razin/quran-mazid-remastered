@@ -52,13 +52,13 @@ const SurahPage = ({ chapter, chapterVerses, chapterVersesMeta }: Props) => {
         {chapter.nameArabic}
       </Heading>
 
-      <Flex flexDirection="column" bgColor="pink-900">
+      <Flex flexDirection="column" bgColor="">
         {chapterVerses.map(({ text_madani, id, words }) => (
           <Flex
             flexWrap="wrap"
-            bgColor="gray.800"
+            bgColor="purple.900"
             borderBottom="1px"
-            borderColor="gray.700"
+            borderColor="purple.700"
             mb="2"
             gap="2"
             py="3"
