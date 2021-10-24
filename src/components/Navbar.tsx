@@ -9,14 +9,19 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { SearchIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { useColorMode } from "@chakra-ui/color-mode";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 
 import Link from "next/link";
 interface Props {}
 
 const Navbar = (props: Props) => {
   return (
-    <HStack align="center" p="2" spacing={4} bg="white">
+    <HStack
+      align="center"
+      p="2"
+      spacing={4}
+      bg={useColorModeValue("white", "#242832")}
+    >
       <Link href="/">
         <Box bg="green.500" cursor="pointer" p="2" borderRadius="full">
           <Logo fontSize="2xl" />

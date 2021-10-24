@@ -19,11 +19,11 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function Chapters({ chapters }) {
   console.log(chapters);
 
-  const numBg = useColorModeValue("green.50", "green.500");
+  const numBg = useColorModeValue("green.50", "green.400");
   const numColor = useColorModeValue("green.500", "white");
 
   return (
-    <Box py="2">
+    <Box py="4">
       <Container maxW={"container.lg"}>
         <Grid
           templateColumns={[
@@ -32,7 +32,7 @@ export default function Chapters({ chapters }) {
             "repeat(3,1fr)",
             "repeat(4,1fr)",
           ]}
-          gap={2}
+          gap={3}
         >
           {chapters.map(({ id, nameArabic, nameSimple, translatedName }) => (
             <Link href={`/chapters/${id}`} key={id + nameSimple}>
@@ -45,8 +45,9 @@ export default function Chapters({ chapters }) {
                 // align="center"
                 direction="column"
                 cursor="pointer"
-                transition=".2s ease"
-                _hover={{ border: "2px solid green.800 " }}
+                // transition="background .3s"
+                // w={id == "1" && "20"}
+                _hover={{}}
               >
                 <Flex justify="space-between" align="center">
                   <Flex
@@ -56,7 +57,7 @@ export default function Chapters({ chapters }) {
                     fontWeight="bold"
                     bg={numBg}
                     color={numColor}
-                    p="4"
+                    p="3.5"
                     fontSize="sm"
                     align="center"
                     justify="center"
@@ -66,14 +67,14 @@ export default function Chapters({ chapters }) {
                   <FaHeart isFavourite={id === 1 && true} />
                 </Flex>
                 <Flex direction="column" mt="3">
-                  <Text fontWeight="bold" fontSize="lg">
+                  <Text fontWeight="bold" fontSize="md">
                     {/* <p style={{ fontWeight: 900, fontFamily: "Poppins" }}> */}
                     {nameSimple}
                     {/* </p> */}
                   </Text>
                   <Text
                     textTransform="uppercase"
-                    fontWeight="semibold"
+                    fontWeight="medium"
                     color="gray.400"
                     fontSize="sm"
                   >
@@ -104,7 +105,7 @@ export function FaHeart(props) {
       viewBox="0 0 512 512"
       color={props.isFavourite ? "green.500" : "gray.400"}
       textShadow="lg"
-      fontSize="3xl"
+      fontSize="2xl"
       {...props}
     >
       <path d="M352 56h-1c-39.7 0-74.8 21-95 52-20.2-31-55.3-52-95-52h-1c-61.9.6-112 50.9-112 113 0 37 16.2 89.5 47.8 132.7C156 384 256 456 256 456s100-72 160.2-154.3C447.8 258.5 464 206 464 169c0-62.1-50.1-112.4-112-113z"></path>

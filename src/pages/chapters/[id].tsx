@@ -20,6 +20,7 @@ import { FaHeart } from "./index";
 import { getChapter, getChapters, getChapterVersesResponse } from "../../api";
 import ChapterType from "../../types/ChapterType";
 import VerseType from "../../types/VerseType";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 interface Props {
   chapter: ChapterType;
@@ -56,9 +57,9 @@ export async function getStaticProps({ params }) {
 const SurahPage = ({ chapter, chapterVerses }: Props) => {
   console.log(chapterVerses);
   return (
-    <Container bg="" maxW="container.lg">
+    <Container maxW="container.lg">
       <Heading
-        py="2"
+        pb="2"
         fontSize="6xl"
         fontFamily="Poppins"
         fontWeight="bold"
@@ -68,21 +69,20 @@ const SurahPage = ({ chapter, chapterVerses }: Props) => {
         {chapter.nameSimple}
       </Heading>
 
-      <Flex flexDirection="column" bgColor="">
+      <Flex flexDirection="column" gridGap="4">
         {chapterVerses.map(
           ({ text_uthmani, verse_key, id, words, translations }) => (
             <Flex
               flexWrap="wrap"
               bgColor=""
-              mb="2"
               gap="2"
               p="6"
               key={id}
-              bg="white"
+              bgColor={useColorModeValue("white", "#242832")}
               borderRadius="lg"
               direction="column"
             >
-              <HStack align="flex-start" justify="space-between">
+              <HStack align="flex-start" justify="space-between" spacing="4">
                 <Text color="green.500" lineHeight="taller" fontWeight="bold">
                   {verse_key}
                 </Text>
