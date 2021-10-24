@@ -9,8 +9,8 @@ const Button = (props) => {
       textTransform="uppercase"
       fontWeight="bold"
       rightIcon={<ChevronRightIcon />}
-      bg="#7000FF"
-      _hover={{ bg: "#6000DB" }}
+      bg="green.500"
+      _hover={{ bg: "green.600" }}
     >
       {props.children}
     </ChakraButton>

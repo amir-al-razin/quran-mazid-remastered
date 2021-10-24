@@ -1,19 +1,29 @@
 import { extendTheme } from "@chakra-ui/react";
 
+import { useColorModeValue } from "@chakra-ui/color-mode";
+
 const theme = extendTheme({
   styles: {
     global: {
       "html, body": {
         // bg: "gray.900",
-        bg: "#14002D",
-        color: "whiteAlpha.900",
+        bg: "#F4F5F9",
+        // bg: useColorModeValue("#F4F5F9", "#252525"),
+        color: "whiteAlpha.00",
       },
       a: {
-        color: "purple.50",
+        color: "",
+        textDecoration: "underline",
+      },
+      input: {
+        border: "none",
+        boxShadow: "none",
+        borderRadius: 0,
       },
     },
   },
   fonts: {
+    body: "Poppins",
     Madani: "Madani",
     IndoPak: "IndoPak",
     SurahNames: "surahnames",
