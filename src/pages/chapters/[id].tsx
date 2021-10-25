@@ -15,12 +15,30 @@ import {
   HStack,
   Text,
 } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/react";
 import React from "react";
 import { FaHeart } from "./index";
-import { getChapter, getChapters, getChapterVersesResponse } from "../../api";
+import {
+  getChapter,
+  getChapterInfo,
+  getChapters,
+  getChapterVersesResponse,
+} from "../../api";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import ChapterType from "../../types/ChapterType";
 import VerseType from "../../types/VerseType";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import { useDisclosure } from "@chakra-ui/hooks";
+import copy from "clipboard-copy";
+import { useToast } from "@chakra-ui/react";
 
 interface Props {
   chapter: ChapterType;
@@ -46,16 +64,21 @@ export async function getStaticProps({ params }) {
   const id = params.id;
   const chapterRes = await getChapter(id);
   const chapterVersesRes = await getChapterVersesResponse(id);
+  const chapterInfo = await getChapterInfo(id);
 
   return {
     props: {
       chapter: chapterRes.chapter,
       chapterVerses: chapterVersesRes.verses,
+      chapterInfo: chapterInfo.chapterInfo,
     },
   };
 }
-const SurahPage = ({ chapter, chapterVerses }: Props) => {
-  console.log(chapterVerses);
+const SurahPage = ({ chapter, chapterVerses, chapterInfo }: Props) => {
+  console.log(chapterInfo);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
   return (
     <Container maxW="container.lg">
       <Heading
@@ -127,14 +150,43 @@ const SurahPage = ({ chapter, chapterVerses }: Props) => {
                 marginBlock="2"
               >
                 <FaHeart fontSize="2xl" />
-                <CopyIcon />
+                <CopyIcon
+                  onClick={() => {
+                    copy(text_uthmani);
+                    toast({
+                      title: "Copied!!",
+                      status: "success",
+                      duration: 5000,
+                      isClosable: true,
+                      variant: "subtle",
+                      position: "top",
+                    });
+                  }}
+                />
                 <RepeatIcon />
-                <InfoIcon />
+                <InfoIcon onClick={() => onOpen()} />
               </HStack>
             </Flex>
           )
         )}
       </Flex>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>chapterInfo</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text>{chapterInfo.shortText}</Text>
+            <Text dangerouslySetInnerHTML={{ __html: chapterInfo.text }} />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Container>
   );
 };

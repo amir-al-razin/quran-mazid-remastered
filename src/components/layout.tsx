@@ -5,7 +5,6 @@ import { Box } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
 import { useLoadingStore } from "../global-stores/useStore";
 import Navbar from "./Navbar";
-import Sidebar from "./sidebar/Sidebar";
 
 export default function Layout({ children }) {
   let isLoading = useLoadingStore((state) => state.loading);
@@ -14,7 +13,6 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <Sidebar />
       <Box bg={bg} paddingBlock="2">
         <main>{children}</main>
       </Box>
