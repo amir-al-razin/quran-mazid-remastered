@@ -32,15 +32,15 @@ export default function Chapters({ chapters }) {
 
   return (
     <Box py="4">
-      <Container maxW={"container.xl"} mr="0">
+      <Container ml={{ base: "auto", xl: "16" }}>
         {/* TODO:list style & card style */}
         <Grid
           templateColumns={[
             "repeat(1,1fr)",
-            "repeat(2,1fr)",
-            "repeat(3,1fr)",
-            "repeat(4,1fr)",
-            "repeat(5,1fr)",
+            // "repeat(2,1fr)",
+            // "repeat(3,1fr)",
+            // "repeat(4,1fr)",
+            // "repeat(5,1fr)",
           ]}
           gap={3}
         >
@@ -63,7 +63,7 @@ export default function Chapters({ chapters }) {
                   outlineColor: "green.500",
                 }}
               >
-                <HStack justify="space-between" align="center">
+                <HStack justify="flex-start" spacing="4" align="flex-start">
                   <Center
                     w="3"
                     h="3"
@@ -71,28 +71,28 @@ export default function Chapters({ chapters }) {
                     fontWeight="bold"
                     bg={numBg}
                     color={numColor}
-                    p="3.5"
+                    p="2.5"
                     fontSize="sm"
                   >
                     {id}
                   </Center>
-                  <FaHeart isFavourite={id === 1 && true} />
+                  {/* <FaHeart isFavourite={id === 1 && true} /> */}
+                  <VStack align="flex-start" spacing="0">
+                    <Text fontWeight="bold" fontSize="md">
+                      {/* <p style={{ fontWeight: 900, fontFamily: "Poppins" }}> */}
+                      {nameSimple}
+                      {/* </p> */}
+                    </Text>
+                    <Text
+                      textTransform="uppercase"
+                      fontWeight="semibold"
+                      color="gray.400"
+                      fontSize="sm"
+                    >
+                      {translatedName.name}
+                    </Text>
+                  </VStack>
                 </HStack>
-                <VStack align="flex-start" spacing="0">
-                  <Text fontWeight="bold" fontSize="md">
-                    {/* <p style={{ fontWeight: 900, fontFamily: "Poppins" }}> */}
-                    {nameSimple}
-                    {/* </p> */}
-                  </Text>
-                  <Text
-                    textTransform="uppercase"
-                    fontWeight="semibold"
-                    color="gray.400"
-                    fontSize="sm"
-                  >
-                    {translatedName.name}
-                  </Text>
-                </VStack>
 
                 {/* <Text
                   fontFamily="SurahNames"
