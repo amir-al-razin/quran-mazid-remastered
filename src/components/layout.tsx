@@ -1,6 +1,4 @@
-import { Button, IconButton } from "@chakra-ui/button";
-import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
 import { useLoadingStore } from "../global-stores/useStore";
@@ -13,8 +11,8 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <Box bg={bg} paddingBlock="2">
-        <main>{children}</main>
+      <Box as="main" pt="14" bg={bg} pb="2">
+        {children}
       </Box>
       {/* <Footer /> */}
       {isLoading ? (

@@ -7,45 +7,81 @@ import {
   IconButton,
   Icon,
   Box,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { SearchIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { SearchIcon, MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
+import SidebarContent from "./sidebar/Sidebar";
 
 import Link from "next/link";
+import Settings from "./settings";
 interface Props {}
 
 const Navbar = (props: Props) => {
+  const sidebar = useDisclosure();
+  const integrations = useDisclosure();
   return (
-    <HStack
-      align="center"
-      p="2"
-      spacing={4}
-      bg={useColorModeValue("white", "#242832")}
-    >
-      <Link href="/">
+    <React.Fragment>
+      <HStack
+        align="center"
+        p="2"
+        spacing={4}
+        bg={useColorModeValue("white", "#242832")}
+        position="fixed"
+        w="full"
+        pl={{ base: "2", xl: "20" }}
+        zIndex="1"
+      >
+        {/* <Link href="/">
         <Box bg="green.500" cursor="pointer" p="2" borderRadius="full">
           <Logo fontSize="2xl" />
         </Box>
-      </Link>
+      </Link> */}
+        <IconButton
+          aria-label="Menu"
+          display={{ base: "inline-flex", xl: "none" }}
+          onClick={sidebar.onOpen}
+          icon={<HamburgerIcon />}
+          size="sm"
+          borderRadius="full"
+        />
 
-      <InputGroup>
-        <InputLeftElement
-          pointerEvents="none"
-          children={<SearchIcon fontSize="xl" color="green.500" />}
-        />
-        <Input
-          border="none"
-          outline="none"
-          boxShadow="none"
-          _focus={{
-            boxShadow: "none",
-          }}
-          type="tel"
-          placeholder="Search here for surah, ayah"
-        />
-      </InputGroup>
-      <Toggle />
-    </HStack>
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<SearchIcon fontSize="xl" color="green.500" />}
+          />
+          <Input
+            border="none"
+            outline="none"
+            boxShadow="none"
+            _focus={{
+              boxShadow: "none",
+            }}
+            type="tel"
+            placeholder="Search here for surah, ayah"
+          />
+        </InputGroup>
+        <Settings />
+        <Toggle />
+      </HStack>
+      {/* Sidebar */}
+
+      <SidebarContent display={{ base: "none", xl: "unset" }} />
+      <Drawer
+        isOpen={sidebar.isOpen}
+        onClose={sidebar.onClose}
+        placement="left"
+      >
+        <DrawerOverlay />
+        <DrawerContent maxW="fit-content" bg="green.500">
+          <SidebarContent />
+        </DrawerContent>
+      </Drawer>
+    </React.Fragment>
   );
 };
 
