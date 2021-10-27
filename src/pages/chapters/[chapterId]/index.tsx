@@ -140,7 +140,8 @@ const SurahPage: NextPage<any> = ({
                     color="orange.300"
                     fontSize="sm"
                   >
-                    see tafsirs <ChevronRightIcon />
+                    see tafsirs
+                    <ChevronRightIcon ml={{ base: "-1", sm: "0" }} />
                   </Text>
                 </Link>
               </HStack>
