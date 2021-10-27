@@ -1,5 +1,5 @@
 import { camelizeKeys } from "humps";
-import { makeUrl } from "./utils/api";
+import { makeTafsirsUrl, makeUrl } from "./utils/api";
 import ChapterType from "./types/ChapterType";
 import VerseType from "./types/VerseType";
 import fetcher from "./utils/fetcher";
@@ -44,3 +44,11 @@ export const getChapterVersesResponse = async (
     )
   );
 };
+/**
+ * Get the list of tafsirs.
+ *
+ * @param {string} language
+ * @returns {Promise<TafsirsResponse>}
+ */
+export const getTafsirs = async (language: string): Promise<any> =>
+  fetcher(makeTafsirsUrl(language));
