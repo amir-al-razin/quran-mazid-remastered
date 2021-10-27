@@ -11,6 +11,11 @@ const loadingStore = (set) => ({
   loading: true,
   setLoadingState: (state) => set({ loading: state }),
 });
+const settingsStore = (set) => ({
+  tafsir: 169,
+  setTafsirState: (id) => set((state) => ({ tafsir: id })),
+});
 
 export const useSajdaVerseStore = create(devtools(sajdaVerseStore));
 export const useLoadingStore = create(devtools(loadingStore));
+export const useSettingsStore = create(devtools(settingsStore));
