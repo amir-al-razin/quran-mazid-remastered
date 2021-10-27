@@ -1,11 +1,19 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import Icon from "@chakra-ui/icon";
-import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
+import {
+  Box,
+  Center,
+  Container,
+  Grid,
+  HStack,
+  Text,
+  VStack,
+} from "@chakra-ui/layout";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import React, { useState } from "react";
 import { getChapters } from "../../api";
-import { CONTENT } from "../../components/chapters/ChapterIcon";
+// import { CONTENT } from "../../components/chapters/ChapterIcon";
 
 export const getStaticProps: GetStaticProps = async () => {
   const chaptersResponse = await getChapters();
@@ -24,33 +32,39 @@ export default function Chapters({ chapters }) {
 
   return (
     <Box py="4">
-      <Container maxW={"container.lg"}>
+      <Container maxW={"container.xl"} mr="0">
+        {/* TODO:list style & card style */}
         <Grid
           templateColumns={[
             "repeat(1,1fr)",
             "repeat(2,1fr)",
             "repeat(3,1fr)",
             "repeat(4,1fr)",
+            "repeat(5,1fr)",
           ]}
           gap={3}
         >
           {chapters.map(({ id, nameArabic, nameSimple, translatedName }) => (
             <Link href={`/chapters/${id}`} key={id + nameSimple}>
-              <Flex
+              <VStack
                 bgColor={useColorModeValue("white", "#242832")}
                 p="4"
                 borderRadius="lg"
                 // justify="space-"
-                gridGap="2"
+                spacing="5"
                 // align="center"
-                direction="column"
+                align="stretch"
                 cursor="pointer"
-                // transition="background .3s"
+                // transition=" .3s"
                 // w={id == "1" && "20"}
-                _hover={{}}
+                _hover={{
+                  outlineWidth: "2px",
+                  outlineStyle: "solid",
+                  outlineColor: "green.500",
+                }}
               >
-                <Flex justify="space-between" align="center">
-                  <Flex
+                <HStack justify="space-between" align="center">
+                  <Center
                     w="3"
                     h="3"
                     borderRadius="3xl"
@@ -59,14 +73,12 @@ export default function Chapters({ chapters }) {
                     color={numColor}
                     p="3.5"
                     fontSize="sm"
-                    align="center"
-                    justify="center"
                   >
                     {id}
-                  </Flex>
+                  </Center>
                   <FaHeart isFavourite={id === 1 && true} />
-                </Flex>
-                <Flex direction="column" mt="3">
+                </HStack>
+                <VStack align="flex-start" spacing="0">
                   <Text fontWeight="bold" fontSize="md">
                     {/* <p style={{ fontWeight: 900, fontFamily: "Poppins" }}> */}
                     {nameSimple}
@@ -74,20 +86,20 @@ export default function Chapters({ chapters }) {
                   </Text>
                   <Text
                     textTransform="uppercase"
-                    fontWeight="medium"
+                    fontWeight="semibold"
                     color="gray.400"
                     fontSize="sm"
                   >
                     {translatedName.name}
                   </Text>
-                </Flex>
+                </VStack>
 
                 {/* <Text
                   fontFamily="SurahNames"
                   fontSize="2xl"
                   _before={{ content: `"\\E${CONTENT[id]} \\E903"` }}
                 ></Text> */}
-              </Flex>
+              </VStack>
             </Link>
           ))}
         </Grid>
