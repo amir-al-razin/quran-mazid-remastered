@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { AppProps } from "next/dist/next-server/lib/router/router";
+import { AppProps } from "next/app";
 import Fonts from "../styles/fonts";
 import "@fontsource/poppins";
 import { AnimatePresence, motion } from "framer-motion";
