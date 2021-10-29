@@ -59,7 +59,7 @@ const SidebarContent = (props) => (
       <Box
         bg="green.500"
         cursor="pointer"
-        p="2.5"
+        p="3"
         mb="8"
         // mt="3"
         // mb="10"
